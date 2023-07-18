@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    *{box-sizing: border-box;margin: 0;padding: 0;}
+    body{
+        display: flex;
+        justify-content: center;
+        background: lightblue;
+      
+    }
+    .cont{
+        width:500px;
+        background:white;
+        padding: 30px 0 50px 40px;
+        border-top: 13px solid rgb(230, 214, 42);
+    }
+    .cont h2{
+        padding: 0 0 0 25px;
+        font-family: sans-serif;
+    }
+    .cont form .inner{
+        width: 380px;
+        padding: 5px 0 5px 0;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid gray;
+    }
+    .cont form .inner1{
+        width: 180px;
+        padding: 5px 0 5px 0;
+        outline: none;
+       border: none;
+       border-bottom: 1px solid gray;
+    } 
+    .cont form .inner2{
+        width:400px;
+        padding: 5px 0 5px 0;
+    }
+    .cont form .inner3{
+        width:400px;
+        padding: 10px 0 10px 0;
+        background:rgb(230, 214, 42);
+        border: none;
+    }
+</style>
+</head>
+<body>
+    <div class="cont">
+          <h2><u>Responsive Registration Form</u></h2>
+          <br><br>
+        <form onsubmit="return validate()">
+            <label><i class="fa-solid fa-envelope" style="color: #484747;"></i></label>
+            <input type="text" placeholder="Email" class="inner" value="" id="em"><br>
+            <span id="em_span"></span>
+            <br><br>
+           
+            <label><i class="fa-solid fa-lock" style="color:  #484747;"></i></label>
+            <input type="text" placeholder="Password" class="inner" id="pwd"><br>
+            <span id="pwdErr"></span><br><br>
+
+            <label><i class="fa-solid fa-lock" style="color:  #484747;"></i></label>
+            <input type="text" placeholder="Re-type Password" class="inner" id="cpwd"><br>
+            <span id="cpwdErr"></span><br><br>
+
+            <label><i class="fa-solid fa-user" style="color: #484747;"></i></label>
+            <input type="text" placeholder="First Name" class="inner1" id="fn">
+            <span id="fnErr"></span>
+            <i class="fa-solid fa-user" style="color: #484747;"></i> <input type="text" placeholder="Last Name" id="ln" class="inner1">
+            <span id="fnErr"></span>
+            <span id="lnErr"></span><br><br>
+          
+            <input type="radio" name="gender" id="ml">Male
+             <input type="radio" name="gender" id="fm">Female<span id="gender"></span>
+            <br><br>
+            <select class="inner2">
+                <option hidden>-------Select Country--------</option>
+                <option>India</option>
+                <option>Australia</option>
+                <option>U.S.A.</option> 
+                <option>Canada</option>
+                <option>Thailand</option>
+            </select>
+            <br><br>
+
+            <input type="checkbox"> I agree with terms and condition<br><br>
+            <input type="checkbox"> I want to receive newsletter<br><br><br>
+
+            <input type="submit" value="Register" class="inner3">
+        </form>
+    </div>
+
+    <script>
+    email_tag=document.getElementById('em');
+    emspan=document.getElementById('em_span');
+    pass=document.getElementById('pwd');
+    passErr=document.getElementById('pwdErr');
+    cpass=document.getElementById('cpwd');
+    cpassErr=document.getElementById('cpwdErr');
+    fname=document.getElementById('fn');
+    fnameErr=document.getElementById('fnErr');
+
+    lname=document.getElementById('ln');
+    lnameErr=document.getElementById("lnErr");
+
+    male=document.getElementById("ml");
+    female=document.getElementById("fm");
+    gender=document.getElementById("gender");
+    console.log(email_tag);
+    console.log(emspan);
+
+    function validate()
+    {
+      if(email_tag.value=="")
+      {
+        emspan.innerHTML="*Email is required...!";
+        emspan.style.color="red";
+        return false;
+      }
+      else
+      {
+        emspan.innerHTML="";
+        
+      }
+      if(pass.value=="")
+         {
+           passErr.innerHTML="*password is required....!";
+           passErr.style.color="red";
+            return false;
+        }
+        else{
+            passErr.innerHTML="";
+            
+        }
+        if(pass.value!=cpass.value)
+        {
+            cpassErr.innerHTML="*password do not match.....!";
+            cpassErr.style.color="red";
+            return false;
+        }
+        else
+        {
+        
+            cpassErr.innerHTML="";
+           
+        }
+        if(fname.value=="")
+         {
+           fnameErr.innerHTML="*Name is required....!";
+           fnameErr.style.color="red";
+            return false;
+        }
+        else{
+            fnameErr.innerHTML="";
+            
+        }
+        if(lname.value=="")
+         {
+           lnameErr.innerHTML="*Surname is required....!";
+           lnameErr.style.color="red";
+            return false;
+        }
+        else{
+            lnameErr.innerHTML="";
+            
+        }
+        if(male.value=="")
+         {
+           gender.innerHTML="*Any one is required....!";
+           gender.style.color="red";
+            return false;
+        }
+        else{
+            gender.innerHTML="";
+            
+        }
+        
+    }
+        
+    </script>
+</body>
+</html>
